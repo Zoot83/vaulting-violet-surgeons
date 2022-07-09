@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Nutrion Thingy</title>
+        <link rel="stylesheet" href="./assets/css/reset.css" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./assets/css/tracker.css" />
+    </head>
+    <header>
+        <h1>Daily Tracker</h1>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a>Tracker</a>
+            <a>Results</a>
+        </nav>
+    </header>
+
+    <body>
+        <div class="container">
+        <section class="form-container">
+            <form>
+                <label for="food-type">Choose a time:</label>
+                <select id="food-type" name="food-type">
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snack">Snacks</option>
+                <option value="drink">Drinks</option>
+                </select>
+
+                <input id="food-name" type="text" placeholder="Food Name">
+                <input id="calories" type="text" placeholder="Calories">
+                <button type="submit">Submit</button>
+            </form>
+
+        </section>
+        <section class="food-container">
+            <h1>Daily Intake</h1>
+            <div class="food-type" id="breakfast">
+                <h2>Breakfast</h2>
+            </div>
+            <div class="food-type" id="lunch">
+                <h2>Lunch</h2>
+            </div>
+            <div class="food-type" id="dinner">
+                <h2>Dinner</h2>
+            </div>
+            <div class="food-type" id="snacks">
+                <h2>snacks</h2>
+            </div>
+            <div class="food-type" id="drinks">
+                <h2>Drinks</h2>
+            </div>
+        </section>
+    </div>
+    </body>
+
+</html>
