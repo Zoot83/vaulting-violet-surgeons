@@ -3,26 +3,6 @@
     --secondaryColor: rgb(34, 169, 34);
     --alternateColor: rgb(0, 208, 255);
     --commonFont: monospace;
-
-html {
-    background-color: var(--primaryColor);
-}
-
-header {
-    background-color: var(--primaryColor);
-    color: white;
-}
-
-#headerNav {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.headerLink {
-    font-family: var(--commonFont);
-    font-size: 25px;
-}
-=======
 }
 
 html {
@@ -43,4 +23,5 @@ header {
     font-family: var(--commonFont);
     font-size: 25px;
 }
+
 
