@@ -6,12 +6,18 @@
 }
 
 html {
-    background-color: var(--primaryColor);
+    background-color: white;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    opacity: 60%;
 }
 
 header {
-    background-color: var(--primaryColor);
-    color: white;
+    background-color: white;
+    color: var(--secondaryColor);
 }
 
 #headerNav {
@@ -19,9 +25,31 @@ header {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+#homeBtn {
+    background-color: var(--primaryColor);
+
+}
+
+#trackerBtn {
+    background-color: var(--alternateColor);
+    margin: 0px 2px 0px 2px;
+}
+
+#resultsBtn {
+    background-color: var(--secondaryColor);
+}
+
 .headerLink {
+    color: white;
+    text-align: center;
     font-family: var(--commonFont);
+    font-weight: bold;
     font-size: 25px;
+    height: 50px;
+    border-radius: 0px 0px 16px 16px;
+    opacity: 60%;
+    border: 2px solid black;
+    border-top: none;
 }
 
 
