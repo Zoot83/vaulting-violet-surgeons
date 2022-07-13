@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="./assets/css/reset.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
         <link rel="stylesheet" href="./assets/css/tracker.css" />
+        
     </head>
     <header>
         <h1>Daily Tracker</h1>
@@ -29,35 +30,43 @@
                 <option value="breakfast">Breakfast</option>
                 <option value="lunch">Lunch</option>
                 <option value="dinner">Dinner</option>
-                <option value="snack">Snacks</option>
-                <option value="drink">Drinks</option>
+                <option value="snacks">Snacks</option>
+                <option value="drinks">Drinks</option>
                 </select>
 
                 <input id="food-name" type="text" placeholder="Food Name">
                 <input id="calories" type="text" placeholder="Calories">
-                <button type="submit">Submit</button>
+                <button type="button" id="submitBtn">Submit</button>
             </form>
 
         </section>
         <section class="food-container">
             <h1>Daily Intake</h1>
-            <div class="food-type" id="breakfast">
+            <div class="food-type">
                 <h2>Breakfast</h2>
+                <ul class="list-obj" id="breakfast"></ul>
             </div>
-            <div class="food-type" id="lunch">
+            <div class="food-type" >
                 <h2>Lunch</h2>
+                <ul class="list-obj" id="lunch"></ul>
             </div>
-            <div class="food-type" id="dinner">
+            <div class="food-type">
                 <h2>Dinner</h2>
+                <ul class="list-obj" id="dinner"></ul>
             </div>
-            <div class="food-type" id="snacks">
+            <div class="food-type">
                 <h2>snacks</h2>
+                <ul class="list-obj" id="snacks"></ul>
+
             </div>
-            <div class="food-type" id="drinks">
+            <div class="food-type">
                 <h2>Drinks</h2>
+                <ul class="list-obj" id="drinks"></ul>
             </div>
         </section>
     </div>
+    <script src="assets/javascript/script.js"></script>
+    <script src="assets/javascript/tracker.js"></script>
     </body>
 
 </html>
