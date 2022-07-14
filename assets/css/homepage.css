@@ -101,3 +101,15 @@ input {
     opacity: 60%;
     width: 66%;
 }
+
+select {
+    width: 75px;
+    height: 35px;
+    border: 2px solid black;
+    border-radius: 0px 16px 16px 0px;
+}
+
+#fruitDropDown {
+    margin-left: 797px;
+    border-radius: 16px 0px 0px 16px;
+}
