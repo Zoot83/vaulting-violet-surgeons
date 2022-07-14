@@ -87,7 +87,7 @@ input {
     color: white;
     opacity: 60%;
     padding-top: 35px;
-    margin-left: 125px;
+    margin-left: 180px;
     height: 100px;
     width: 100px;
     border-radius: 50%;
@@ -103,13 +103,13 @@ input {
 }
 
 select {
-    width: 75px;
+    width: 125px;
     height: 35px;
     border: 2px solid black;
     border-radius: 0px 16px 16px 0px;
 }
 
 #fruitDropDown {
-    margin-left: 797px;
+    margin-left: 822px;
     border-radius: 16px 0px 0px 16px;
 }
