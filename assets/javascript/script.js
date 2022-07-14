@@ -9,4 +9,5 @@ function submition () {
     var calorieGoal = calorieGoalTextBox.value;
     localStorage.setItem("userName", userName);
     localStorage.setItem("calorieGoal", calorieGoal);
+    console.log("Button Clicked");
 }
