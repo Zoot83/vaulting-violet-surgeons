@@ -26,9 +26,15 @@ h3 {
 }
 
 #submitBtn {
+    background-color: var(--alternateColor);
+    color: white;
+    border: 2px solid black;
     height: 35px;
     position: static;
     right: 0;
+    font-size: 15px;
+    border-radius: 16px;
+    width: 100px;
 }
 
 #link1 {
@@ -65,7 +71,7 @@ h3 {
 form {
     background-color: var(--secondaryColor);
     height: 100px;
-    width: 650px;
+    width: 700px;
     opacity: 60%;
     border-radius: 32px;
     border: 2px solid black;
@@ -88,7 +94,7 @@ input {
     color: white;
     opacity: 60%;
     padding-top: 35px;
-    margin-left: 125px;
+    margin-left: 180px;
     height: 100px;
     width: 100px;
     border-radius: 50%;
@@ -101,4 +107,17 @@ input {
     height: 400px;
     opacity: 60%;
     width: 66%;
+}
+
+select {
+
+    border: 2px solid black;
+    border-radius: 0px 16px 16px 0px;
+    height: 35px;
+    width: 100px;
+}
+
+#fruitDropDown {
+    border-radius: 16px 0px 0px 16px;
+    margin-left: 847px;
 }
