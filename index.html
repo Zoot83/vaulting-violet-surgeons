@@ -17,20 +17,11 @@
             <h1>Home</h1>
 
             <nav id="headerNav">
-                <a href="" class="headerLink">Home</a>
-                <a href="" class="headerLink">Tracker</a>
-                <a href="" class="headerLink">Results</a>
+                <a href="" class="headerLink" id="homeBtn">Home</a>
+                <a href="" class="headerLink" id="trackerBtn">Tracker</a>
+                <a href="" class="headerLink" id="resultsBtn">Results</a>
             </nav>
         </header>
-
-        <section id="resources">
-            <h2>Resources</h2>
-            <nav id="resourcesNav">
-                <a href="">Link1</a>
-                <a href="">Link2</a>
-                <a href="">Link3</a>
-            </nav>
-        </section>
 
         <section id="homePageForm">
 
@@ -40,26 +31,46 @@
                 <label for="nameTextBox">Name:</label>
                 <input id="nameTextBox" type="text">
 
-                <label for="calorieGoalTextBox">Calorie Goal</label>
+                <label for="calorieGoalTextBox">Calorie-Goal:</label>
                 <input id="calorieGoalTextBox" type="text">
 
-                <button id="sumbitBtn">Submit</button>
+                <button id="submitBtn">Submit</button>
+
             </form>
             <div></div>
         </section>
 
+        <section id="resources">
+            <nav id="resourcesNav">
+                <a href="" class="links" id="link1">Food Facts</a>
+                <a href="" class="links" id="link2">Nutrition</a>
+                <a href="" class="links" id="link3">Health</a>
+            </nav>
+        </section>
+
         <section id="homePageFoodInfo">
-            <div>
+            <div id="meatDiv" class="foodInfoDiv">
+
                 <h3>Meat</h3>
+
+                <select id="meatDropDown">
+                    <option>Steak</option>
+                    <option>Pork</option>
+                    <option>Salmon</option>
+                    <option>Bacon</option>
+                </select>
+
                 <img src="" alt="">
+
+                <p id="meatP"></p>
             </div>
 
-            <div>
+            <div id="fruitDiv" class="foodInfoDiv">
                 <h3>Fruits</h3>
                 <img src="" alt="">
             </div>
 
-            <div>
+            <div id="veggieDiv" class="foodInfoDiv">
                 <h3>Veggies</h3>
                 <img src="" alt="">
             </div>
