@@ -1,6 +1,5 @@
-var nameTextBox = document.getElementById("#nameTextBox");
-var calorieGoalTextBox = document.getElementById("#calorieGoalTextBox");
-var submitBTn = document.getElementById("#submitBtn");
+var submitBtn = document.getElementById("submitBtn");
+
 
 submitBTn.addEventListener("click", submition);
 
