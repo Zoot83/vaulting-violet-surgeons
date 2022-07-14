@@ -84,6 +84,7 @@ input {
 }
 
 .links {
+    font-family: var(--commonFont);
     color: white;
     opacity: 60%;
     padding-top: 35px;
