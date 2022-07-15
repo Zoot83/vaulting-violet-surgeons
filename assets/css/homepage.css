@@ -110,7 +110,8 @@ input {
 }
 
 select {
-
+    width: 125px;
+    height: 35px;
     border: 2px solid black;
     border-radius: 0px 16px 16px 0px;
     height: 35px;

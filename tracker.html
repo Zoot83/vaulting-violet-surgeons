@@ -9,7 +9,7 @@
         <title>Tracker</title>
         <link rel="stylesheet" href="./assets/css/reset.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
-        <link rel="stylesheet" href="./assets/css/homepage.css" />
+        <link rel="stylesheet" href="./assets/css/tracker.css" />
     </head>
 
     <body>
@@ -17,55 +17,67 @@
             <h1>Tracker</h1>
 
             <nav id="headerNav">
-                <a href="./index.html" class="headerLink">Home</a>
-                <a href="./tracker.html" class="headerLink">Tracker</a>
-                <a href="./result.html" class="headerLink">Results</a>
+                <a href="./index.html" class="headerLink" id="homeBtn">Home</a>
+                <a href="./tracker.html" class="headerLink" id="trackerBtn">Tracker</a>
+                <a href="./result.html" class="headerLink" id="resultsBtn">Results</a>
             </nav>
         </header>
+        
+        <section id="formCentering">
+            <div></div>
+            <div id="formContainer">
+                <form>
 
-        <div class="container">
-        <section class="form-container">
-            <form>
-                <label for="food-type">Choose a time:</label>
-                <select id="food-type" name="food-type">
-                <option value="breakfast">Breakfast</option>
-                <option value="lunch">Lunch</option>
-                <option value="dinner">Dinner</option>
-                <option value="snacks">Snacks</option>
-                <option value="drinks">Drinks</option>
-                </select>
+                    <label for="food-type">Choose a time:</label>
 
-                <input id="food-name" type="text" placeholder="Food Name">
-                <input id="calories" type="text" placeholder="Calories">
-                <button type="button" id="submitBtn">Submit</button>
-            </form>
+                    <select id="food-type" name="food-type">
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="snacks">Snacks</option>
+                        <option value="drinks">Drinks</option>
+                    </select>
 
+                    <input id="food-name" type="text" placeholder="Food Name">
+                    <input id="calories" type="text" placeholder="Calories">
+
+                    <button type="button" id="submitBtn">Submit</button>
+                </form>
+            </div>
+            <div></div>
         </section>
+        
         <section class="food-container">
+
             <h1>Daily Intake</h1>
+
             <div class="food-type">
                 <h2>Breakfast</h2>
                 <ul class="list-obj" id="breakfast"></ul>
             </div>
+
             <div class="food-type" >
                 <h2>Lunch</h2>
                 <ul class="list-obj" id="lunch"></ul>
             </div>
+
             <div class="food-type">
                 <h2>Dinner</h2>
                 <ul class="list-obj" id="dinner"></ul>
             </div>
+
             <div class="food-type">
                 <h2>snacks</h2>
                 <ul class="list-obj" id="snacks"></ul>
 
             </div>
+
             <div class="food-type">
                 <h2>Drinks</h2>
                 <ul class="list-obj" id="drinks"></ul>
             </div>
         </section>
-    </div>
+
     <script src="assets/javascript/script.js"></script>
     <script src="assets/javascript/tracker.js"></script>
     </body>
