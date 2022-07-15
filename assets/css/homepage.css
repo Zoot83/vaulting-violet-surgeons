@@ -1,7 +1,8 @@
 :root {
-    --primaryColor: rgb(230, 155, 7);
-    --secondaryColor: rgb(34, 169, 34);
-    --alternateColor: rgb(0, 208, 255);
+    --firstColor: rgb(213, 67, 213);
+    --secondColor: rgb(230, 155, 7);
+    --thirdColor: rgb(34, 169, 34);
+    --fourthColor: rgb(0, 208, 255);
     --commonFont: monospace;
 }
 
@@ -26,8 +27,8 @@ h3 {
 }
 
 #submitBtn {
-    background-color: var(--alternateColor);
-    color: white;
+    background-color: white;
+    color: black;
     border: 2px solid black;
     height: 35px;
     position: static;
@@ -38,38 +39,38 @@ h3 {
 }
 
 #link1 {
-    background-color: var(--primaryColor)
+    background-color: var(--secondColor)
 }
 
 #link2 {
-    background-color: var(--alternateColor);
+    background-color: var(--fourthColor);
 }
 
 #link3 {
-    background-color: var(--secondaryColor);
+    background-color: var(--thirdColor);
 }
 
 #meatDiv{
-    background-color: var(--primaryColor);
+    background-color: var(--secondColor);
     border: 2px solid black;
     border-radius: 0px 64px 64px 0px;
 }
 
 #fruitDiv {
-    background-color: var(--alternateColor);
+    background-color: var(--fourthColor);
     border: 2px solid black;
     border-radius: 64px 0px 0px 64px;
     margin-left: auto;
 }
 
 #veggieDiv {
-    background-color: var(--secondaryColor);
+    background-color: var(--thirdColor);
     border: 2px solid black;
     border-radius: 0px 64px 64px 0px;
 }
 
 form {
-    background-color: var(--secondaryColor);
+    background-color: var(--firstColor);
     height: 100px;
     width: 700px;
     opacity: 60%;
@@ -87,6 +88,7 @@ input {
     margin-top: 33px;
     height: 35px;
     margin-left: 10px;
+    border: 2px solid black;
 }
 
 .links {

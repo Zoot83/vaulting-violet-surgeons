@@ -1,3 +1,11 @@
+:root {
+    --firstColor: rgb(213, 67, 213);
+    --secondColor: rgb(230, 155, 7);
+    --thirdColor: rgb(34, 169, 34);
+    --fourthColor: rgb(0, 208, 255);
+    --commonFont: monospace;
+}
+
 #formCentering {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -6,7 +14,7 @@
 #formContainer {
     border: 2px solid black;
     height:75px;
-    background-color: rgb(213, 67, 213);
+    background-color: var(--firstColor);
     width: 700px;
     opacity: 60%;
     border-radius: 32px;
@@ -26,5 +34,22 @@ select, input, button {
 
 input {
     width: 150px;
+    text-align: center;
+}
+
+h2, h3 {
+    text-align: center;
+    font-size: 35px;
+    font-family: var(--commonFont);
+    color: var(--firstColor);
+    opacity: 60%;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+#submitTrackerBtn {
+    width: 100px;
 }
 
