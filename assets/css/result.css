@@ -1,0 +1,46 @@
+#navigate {
+    color: white;
+    text-align: center;
+    font-family: var(--commonFont);
+    font-weight: bold;
+    font-size: 25px;
+    height: 50px;
+    border-radius: 0px 0px 16px 16px;
+    opacity: 60%;
+    border: 2px solid black;
+    border-top: none;
+    background-color: rgb(34, 169, 34);
+}
+
+#tracker {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    height: 50px;
+    width: 120px;
+    border-radius: 0px 0px 16px 16px;
+    opacity: 60%;
+    border: 2px solid black;
+    border-top: none;
+    background-color: rgb(230, 155, 7);
+    
+}
+
+#resultbox {
+    align-items: center;
+    text-align: center;
+}
+
+#dailybox {
+    background-color: rgb(230, 155, 7);
+}
+
+#goalbox {
+    background-color: rgb(0, 208, 255);
+    opacity: 60%;
+}
+
+#goalresultbox {
+    background-color: rgb(34, 169, 34);
+}

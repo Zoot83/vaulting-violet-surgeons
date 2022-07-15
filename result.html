@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="result.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/result.css">
 </head>
  <nav id="navigate">
      <div>
@@ -13,23 +13,28 @@
      </div>   
  </nav>
 <body>
-    <section>
-       <div>
+    <section id="resultbox">
+       <div id="dailybox">
            <h1>Daily Tracker</h1>
-           <h2 id="name"> </h2>
+           <h2 id="trackerinput"> </h2>
            <p>####</p>
        </div>
 
-       <div>
+       <div  id="goalbox">
            <h1>Goal</h1>
            <p>####</p>
        </div>
 
-       <div>
+       <div  id="goalresultbox">
            <h1>Goal Results</h1>
            <p>####</p>
-           <button>Generate Result</button>
        </div>
+
+       <button>Generate Result</button>
     </section>
 </body>
+<script src="./assets/javascript/result.js"></script>
+<script src="./assets/javascript/script.js"></script>
+<script src="./assets/javascript/tracker.js"></script>
+
 </html>

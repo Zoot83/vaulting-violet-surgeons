@@ -9,6 +9,7 @@ var inputVar = {
 
 function saveInfo(event){
     event.preventDefault();
+    console.log("saveInfo");
     
     if(isNaN(document.getElementById("calories").value)){
         alert("Please enter a valid number");
