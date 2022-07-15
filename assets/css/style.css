@@ -11,6 +11,7 @@ html {
 
 h1 {
     font-size: 50px;
+    font-family: var(--commonFont);
     text-align: center;
     opacity: 60%;
 }

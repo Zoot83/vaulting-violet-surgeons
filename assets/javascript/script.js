@@ -1,7 +1,7 @@
 var submitBtn = document.getElementById("submitBtn");
 
 
-submitBTn.addEventListener("click", submition);
+submitBtn.addEventListener("click", submition);
 
 
 function submition () {

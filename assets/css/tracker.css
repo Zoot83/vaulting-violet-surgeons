@@ -1,15 +1,30 @@
-.form-container{
-    border: 5px;
-    display: flex;
-    flex-direction: row;
-}
-form{
-    display: flex;
-    flex-direction: column;
-    align-content: flex-start;
-    border: 5px;
+#formCentering {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
-.container{
-    display: flex;
+#formContainer {
+    border: 2px solid black;
+    height:75px;
+    background-color: rgb(213, 67, 213);
+    width: 700px;
+    opacity: 60%;
+    border-radius: 32px;
+    margin-top: 150px;
 }
+
+label {
+    margin-left: 30px;
+}
+
+select, input, button {
+    margin-top: 15px;
+    height: 35px;
+    border: 2px solid black;
+    border-radius: 16px;
+}
+
+input {
+    width: 150px;
+}
+
