@@ -5,34 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/result.css">
 </head>
- <nav id="navigate">
-     <div>
-         <a>Home</a>
-     </div>   
- </nav>
+
 <body>
+
+    <header>
+        <h1>Results</h1>
+
+        <nav id="headerNav">
+            <a href="./index.html" class="headerLink" id="homeBtn">Home</a>
+            <a href="./tracker.html" class="headerLink" id="trackerBtn">Tracker</a>
+            <a href="./result.html" class="headerLink" id="resultsBtn">Results</a>
+        </nav>
+    </header>
+
     <section id="resultbox">
-       <div id="dailybox">
-           <h1>Daily Tracker</h1>
-           <h2 id="trackerinput"> </h2>
+       <div id="dailybox" class="resultDiv">
+           <h2>Daily Tracker</h2>
+           <p id="trackerinput"> </p>
            <p>####</p>
        </div>
 
-       <div  id="goalbox">
-           <h1>Goal</h1>
+       <div  id="goalbox" class="resultDiv">
+           <h2>Goal</h2>
            <p>####</p>
        </div>
 
-       <div  id="goalresultbox">
-           <h1>Goal Results</h1>
+       <div  id="goalresultbox" class="resultDiv">
+           <h2>Goal Results</h2>
            <p>####</p>
        </div>
 
-       <button>Generate Result</button>
+       <button id="resultBtn">Generate Result</button>
+
     </section>
 </body>
+
 <script src="./assets/javascript/result.js"></script>
 <script src="./assets/javascript/script.js"></script>
 <script src="./assets/javascript/tracker.js"></script>
