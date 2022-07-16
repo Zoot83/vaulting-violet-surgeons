@@ -1,43 +1,171 @@
 var submitEl = document.getElementById("submitBtn");
 var dailyCalTotal;
+var arrayOfNames = [];
+
 
 var inputVar = {
-    type: "",
-    foodName: "",
-    calAmount: 0
+  type: "",
+  foodName: "",
+  calAmount: 0
 }
 
-function saveInfo(event){
-    event.preventDefault();
-    console.log("saveInfo");
-    
-    if(isNaN(document.getElementById("calories").value)){
-        alert("Please enter a valid number");
-    } else{
-        inputVar.type=document.getElementById("food-type").value;
-        inputVar.foodName=document.getElementById("food-name").value;
-        inputVar.calAmount=document.getElementById("calories").value;
-        addToSection(inputVar);
+
+const options = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': 'f7db058726msh40d09fddf6983c8p1c2668jsn3bc5fa88698f',
+    'X-RapidAPI-Host': 'nutritionix-api.p.rapidapi.com'
+  }
+};
+
+
+function saveInfo(event) {
+  event.preventDefault();
+
+  inputVar.type = document.getElementById("food-type").value;
+  inputVar.foodName = document.getElementById("myInput").value;
+  addToSection(inputVar);
+
+}
+
+function addToSection(inputValues) {
+
+
+  let newFoodName = document.createElement("li");
+  newFoodName.innerHTML=inputValues.foodName;
+  var listEl = document.getElementById(inputValues.type)
+  newFoodName.classList.add("list-elem");
+  listEl.appendChild(newFoodName);
+}
+
+function addToTotalCount() {
+
+  var data = JSON.parse(localStorage.getItem('data')) || {};
+
+  localStorage.setItem("data", JSON.stringify(data));
+  console.log(localStorage.getItem('data'));
+}
+
+
+function autocomplete(inp) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function (e) {
+    arrayOfNames = [];
+    var a, b, i, val = this.value;
+    console.log("val", val)
+    // getArray(this.value)
+
+    /*close any already open lists of autocompleted values*/
+    closeAllLists();
+    if (!val) { return false; }
+    currentFocus = -1;
+    /*create a DIV element that will contain the items (values):*/
+    a = document.createElement("div");
+
+    a.setAttribute("id", this.id + "autocomplete-list");
+
+    a.setAttribute("class", "autocomplete-items");
+    /*append the DIV element as a child of the autocomplete container:*/
+    this.parentNode.appendChild(a);
+    fetch("https://nutritionix-api.p.rapidapi.com/v1_1/search/" + val + "?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat", options)
+      .then(response => response.json())
+      .then(response => {
+        for (var i = 0; i < 10; i++) {
+          arrayOfNames[i] = response.hits[i].fields.item_name;
+        }
+
+      
+      
+
+    /*for each item in the arrayOfNamesay...*/
+    for (i = 0; i < arrayOfNames.length; i++) {
+
+
+      /*check if the item starts with the same letters as the text field value:*/
+      if (arrayOfNames[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        /*create a DIV element for each matching element:*/
+        b = document.createElement("DIV");
+        /*make the matching letters bold:*/
+        b.innerHTML = "<strong>" + arrayOfNames[i].substr(0, val.length) + "</strong>";
+        b.innerHTML += arrayOfNames[i].substr(val.length);
+        /*insert a input field that will hold the current arrayOfNamesay item's value:*/
+        b.innerHTML += "<input type='hidden' value='" + arrayOfNames[i] + "'>";
+        /*execute a function when someone clicks on the item value (DIV element):*/
+        b.addEventListener("click", function (e) {
+          /*insert the value for the autocomplete text field:*/
+          inp.value = this.getElementsByTagName("input")[0].value;
+          /*close the list of autocompleted values,
+          (or any other open lists of autocompleted values:*/
+          closeAllLists();
+        });
+        a.appendChild(b);
+      }
     }
-    
+  })
+  .catch(err => console.error(err));
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function (e) {
+    var x = document.getElementById(this.id + "autocomplete-list");
+    if (x) x = x.getElementsByTagName("div");
+    if (e.keyCode == 40) {
+      /*If the arrayOfNamesow DOWN key is pressed,
+      increase the currentFocus variable:*/
+      currentFocus++;
+      /*and and make the current item more visible:*/
+      addActive(x);
+    } else if (e.keyCode == 38) { //up
+      /*If the arrow UP key is pressed,
+      decrease the currentFocus variable:*/
+      currentFocus--;
+      /*and and make the current item more visible:*/
+      addActive(x);
+    } else if (e.keyCode == 13) {
+      /*If the ENTER key is pressed, prevent the form from being submitted,*/
+      e.preventDefault();
+      if (currentFocus > -1) {
+        /*and simulate a click on the "active" item:*/
+        if (x) x[currentFocus].click();
+      }
+    }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+
+
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+  });
 }
 
-function addToSection(inputValues){
-
-    addToTotalCount(inputVar);
-    let newFoodName = document.createElement("li");
-    newFoodName.innerHTML = inputValues.foodName + " Calories= " + inputValues.calAmount;
-    var listEl = document.getElementById(inputValues.type)
-    newFoodName.classList.add("list-elem");
-    listEl.appendChild(newFoodName);
-}
-
-function addToTotalCount(inputValues){
-    dailyCalTotal += inputValues.calAmount;
-    var data = JSON.parse(localStorage.getItem('data')) || {};
-
-    localStorage.setItem("data", JSON.stringify(data));
-    console.log(localStorage.getItem('data'));
-}
+autocomplete(document.getElementById("myInput"));
 
 submitEl.addEventListener("click", saveInfo);
