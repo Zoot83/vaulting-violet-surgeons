@@ -1,4 +1,4 @@
-#navigate {
+/* #navigate {
     color: white;
     text-align: center;
     font-family: var(--commonFont);
@@ -43,4 +43,61 @@
 
 #goalresultbox {
     background-color: rgb(34, 169, 34);
+} */
+:root {
+    --firstColor: rgb(213, 67, 213);
+    --secondColor: rgb(230, 155, 7);
+    --thirdColor: rgb(34, 169, 34);
+    --fourthColor: rgb(0, 208, 255);
+    --commonFont: monospace;
+}
+
+h2 {
+    text-align: center;
+    font-size: 35px;
+    font-family: var(--commonFont);
+    color: white;
+
+}
+
+p {
+    text-align: center;
+}
+
+#dailybox {
+    background-color: var(--secondColor);
+}
+
+#goalbox {
+    background-color: var(--fourthColor);
+    margin-left: auto;
+}
+
+#goalresultbox {
+    background-color: var(--thirdColor);
+}
+
+#resultBtn {
+    background-color: var(--firstColor);
+    color: white;
+    border: 2px solid black;
+    border-radius: 16px;
+    opacity: 60%;
+    height: 50px;
+    width: 125px;
+    text-align: center;
+    font-size: 15px;
+    margin-left: 650px;
+    margin-top: 50px;
+}
+
+.resultDiv {
+    width: 600px;
+    color: white;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 32px;
+    opacity: 60%;
+    margin-top: 150px;
+    background-color: var(--firstColor);
 }
