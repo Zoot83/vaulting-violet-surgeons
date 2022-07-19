@@ -1,11 +1,18 @@
 var submitEl = document.getElementById("submitBtn");
-var dailyCalTotal;
+var nameEl = document.getElementById('name');
+var calorieEl = document.getElementById('userCal');
+var userName = localStorage.getItem("userName");
+var caloriesGoal = localStorage.getItem("calorieGoal");
+var currentAmountEl = document.getElementById("currentAmount");
+var clearBtnEl = document.getElementById("clearBtn");
+var dailyCalTotal = 0;
 var arrayOfNames = [];
 
 
 var inputVar = {
   type: "",
   foodName: "",
+  quantity: 0,
   calAmount: 0
 }
 
@@ -19,33 +26,75 @@ const options = {
 };
 
 
+
 function saveInfo(event) {
   event.preventDefault();
 
   inputVar.type = document.getElementById("food-type").value;
   inputVar.foodName = document.getElementById("myInput").value;
+  inputVar.quantity =document.getElementById("food-amount").value;
   addToSection(inputVar);
 
 }
 
 function addToSection(inputValues) {
-
+  var caloriesCount=0;
 
   let newFoodName = document.createElement("li");
   newFoodName.innerHTML=inputValues.foodName;
   var listEl = document.getElementById(inputValues.type)
   newFoodName.classList.add("list-elem");
+  fetch('https://nutritionix-api.p.rapidapi.com/v1_1/search/'+ inputValues.foodName +'?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat', options)
+	.then(response => response.json())
+	.then(response => {
+    
+    caloriesCount = calculateCalories(inputValues.quantity, response.hits[0].fields.nf_calories);
+    newFoodName.innerHTML+=" Calories: "+caloriesCount;
+    addToTotalCount(caloriesCount);
+    dailyCalTotal += caloriesCount; 
+    currentAmountEl.innerHTML = "Your daily total is: "+dailyCalTotal;
+    getUsersInfo;
+
+  })
+  .catch(err => {
+    alert("Please enter a valid food.")
+  });
   listEl.appendChild(newFoodName);
+
 }
 
-function addToTotalCount() {
+function calculateCalories(quantity, calPerServing){
 
-  var data = JSON.parse(localStorage.getItem('data')) || {};
+  totalCalories=(quantity*calPerServing);
 
-  localStorage.setItem("data", JSON.stringify(data));
-  console.log(localStorage.getItem('data'));
+  return totalCalories;
 }
 
+function addToTotalCount(count) {
+
+  if(localStorage.getItem('data')=== null){
+    var data = 0;
+    var dataToInt = parseInt(data);
+    dataToInt=count;
+    localStorage.setItem("data", dataToInt);
+  }else{
+    var data = localStorage.getItem("data");
+    var dataToInt = parseInt(data);
+    dataToInt+=count;
+    
+    localStorage.setItem("data", dataToInt);
+  }
+
+}
+
+function clearAllListElements(){
+  var listElements = document.querySelectorAll('.list-elem');
+  listElements.forEach(function(elem){
+    elem.remove();
+  })
+  localStorage.setItem("data", 0);
+  updateTotal;
+}
 
 function autocomplete(inp) {
   /*the autocomplete function takes two arguments,
@@ -55,15 +104,13 @@ function autocomplete(inp) {
   inp.addEventListener("input", function (e) {
     arrayOfNames = [];
     var a, b, i, val = this.value;
-    console.log("val", val)
-    // getArray(this.value)
 
     /*close any already open lists of autocompleted values*/
     closeAllLists();
     if (!val) { return false; }
     currentFocus = -1;
     /*create a DIV element that will contain the items (values):*/
-    a = document.createElement("div");
+    a = document.createElement("DIV");
 
     a.setAttribute("id", this.id + "autocomplete-list");
 
@@ -77,13 +124,9 @@ function autocomplete(inp) {
           arrayOfNames[i] = response.hits[i].fields.item_name;
         }
 
-      
-      
 
     /*for each item in the arrayOfNamesay...*/
     for (i = 0; i < arrayOfNames.length; i++) {
-
-
       /*check if the item starts with the same letters as the text field value:*/
       if (arrayOfNames[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
         /*create a DIV element for each matching element:*/
@@ -105,7 +148,9 @@ function autocomplete(inp) {
       }
     }
   })
-  .catch(err => console.error(err));
+  .catch(err => {
+    alert("Please enter a valid food");
+  });
   });
   /*execute a function presses a key on the keyboard:*/
   inp.addEventListener("keydown", function (e) {
@@ -166,6 +211,24 @@ function autocomplete(inp) {
   });
 }
 
+function getUsersInfo(){
+
+  if(userName===null || caloriesGoal===null){
+    calorieEl.innerHTML= "Your calorie goal: 0";
+    currentAmountEl.innerHTML = "Your daily total is: " + dailyCalTotal;
+  }else if(caloriesGoal!=null&& userName===null){
+    calorieEl.innerHTML= "Your calorie goal: " + caloriesGoal;
+    currentAmountEl.innerHTML = "Your daily total is: " + dailyCalTotal;
+  }else{
+    nameEl.innerHTML=userName;
+    calorieEl.innerHTML= "Your calorie goal: " + caloriesGoal;
+    currentAmountEl.innerHTML = "Your daily total is: " + dailyCalTotal;
+  }
+
+}
+
+getUsersInfo();
 autocomplete(document.getElementById("myInput"));
 
 submitEl.addEventListener("click", saveInfo);
+clearBtnEl.addEventListener("click", clearAllListElements);
