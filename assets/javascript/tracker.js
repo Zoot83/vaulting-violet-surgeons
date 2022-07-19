@@ -37,14 +37,15 @@ function saveInfo(event) {
 
 }
 
+
 function addToSection(inputValues) {
   var caloriesCount=0;
-
+  var food = inputValues.foodName.split(" ");
   let newFoodName = document.createElement("li");
   newFoodName.innerHTML=inputValues.foodName;
   var listEl = document.getElementById(inputValues.type)
   newFoodName.classList.add("list-elem");
-  fetch('https://nutritionix-api.p.rapidapi.com/v1_1/search/'+ inputValues.foodName +'?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat', options)
+  fetch('https://nutritionix-api.p.rapidapi.com/v1_1/search/'+ food +'?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat', options)
 	.then(response => response.json())
 	.then(response => {
     
@@ -92,8 +93,9 @@ function clearAllListElements(){
   listElements.forEach(function(elem){
     elem.remove();
   })
+  dailyCalTotal=0;
   localStorage.setItem("data", 0);
-  updateTotal;
+  currentAmountEl.innerHTML = "Your daily total is: 0";
 }
 
 function autocomplete(inp) {
@@ -224,7 +226,6 @@ function getUsersInfo(){
     calorieEl.innerHTML= "Your calorie goal: " + caloriesGoal;
     currentAmountEl.innerHTML = "Your daily total is: " + dailyCalTotal;
   }
-
 }
 
 getUsersInfo();
