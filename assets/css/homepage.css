@@ -50,20 +50,20 @@ h3 {
     background-color: var(--thirdColor);
 }
 
-#meatDiv{
+#recipe1Div{
     background-color: var(--secondColor);
     border: 2px solid black;
     border-radius: 0px 64px 64px 0px;
 }
 
-#fruitDiv {
+#recipe2Div {
     background-color: var(--fourthColor);
     border: 2px solid black;
     border-radius: 64px 0px 0px 64px;
     margin-left: auto;
 }
 
-#veggieDiv {
+#recipe3Div {
     background-color: var(--thirdColor);
     border: 2px solid black;
     border-radius: 0px 64px 64px 0px;
@@ -106,7 +106,6 @@ input {
 .foodInfoDiv {
     margin-top: 100px;
     color: white;
-    height: 400px;
     opacity: 60%;
     width: 66%;
 }
@@ -118,9 +117,4 @@ select {
     border-radius: 0px 16px 16px 0px;
     height: 35px;
     width: 100px;
-}
-
-#fruitDropDown {
-    border-radius: 16px 0px 0px 16px;
-    margin-left: 847px;
 }
