@@ -22,6 +22,14 @@
                 <a href="./result.html" class="headerLink" id="resultsBtn">Results</a>
             </nav>
         </header>
+
+        <section id="userInfo">
+            <div>
+                <h2 id="name"></h2>
+                <h3 id="userCal"></h3>
+                <h3 id="currentAmount"></h3>
+            </div>
+        </section>
         
         <section id="formCentering">
             <div></div>
@@ -38,10 +46,18 @@
                         <option value="drinks">Drinks</option>
                     </select>
 
-                    <input id="food-name" type="text" placeholder="Food Name">
-                    <input id="calories" type="text" placeholder="Calories">
-
-                    <button type="button" id="submitTrackerBtn">Submit</button>
+                    <div class="autocomplete" style="width:150px;">
+                        <input id="myInput" type="text" name="myInput" placeholder="Food Name">                        
+                    </div>
+                    <select id="food-amount" name="food-amount">
+                        <option value=".5">.5 Serving</option>
+                        <option value="1" >One Serving</option>
+                        <option value="1.5">1.5 Servings</option>
+                        <option value="2">2 Servings</option>
+                        <option value="3">3 Servings</option>
+                    </select>
+                    <button type="button" id="submitBtn">Submit</button>
+                    <button type="button" id="clearBtn">Clear</button>
                 </form>
             </div>
             <div></div>
