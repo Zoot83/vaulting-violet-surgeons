@@ -1,6 +1,12 @@
 var submitBtn = document.getElementById("submitBtn");
 var nameTextBox = document.getElementById("nameTextBox");
 var calorieGoalTextBox = document.getElementById("calorieGoalTextBox");
+var recipe1Div = document.getElementById("recipe1Div");
+var recipe1Button = document.getElementById("recipe1Button");
+var recipe2Div = document.getElementById("recipe2Div");
+var recipe2Button = document.getElementById("recipe2Button");
+var recipe3Div = document.getElementById("recipe3Div");
+var recipe3Button = document.getElementById("recipe3Button");
 
 
 submitBtn.addEventListener("click", submition);
@@ -16,4 +22,53 @@ function submition () {
     }
 }
 
+getRecipes(3, [recipe1Div, recipe2Div, recipe3Div]);
 
+
+
+function getRecipes (recipesCount, divArray) {
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'c9ecfd15f0mshd815ab6571d82bep10cfb3jsn15dff0bd4a42',
+            'X-RapidAPI-Host': 'random-recipes.p.rapidapi.com'
+        }
+    };
+
+    fetch('https://random-recipes.p.rapidapi.com/ai-quotes/' + recipesCount, options)
+    .then(response => response.json())
+    .then(function (data) {
+        console.log(data);
+        displayRecipes(recipesCount, divArray, data);
+        })
+    .catch(err => console.error(err));
+
+}
+
+function displayRecipes (recipesCount, divArray, recipeArray) {
+    for (let i = 0; i < recipesCount; i++) {
+        divArray[i].querySelector(".title").innerHTML = recipeArray[i].title;
+        divArray[i].querySelector(".image").innerHTML = recipeArray[i].image;
+        divArray[i].querySelector(".ingredients").innerHTML = recipeArray[i].ingredients;
+        divArray[i].querySelector(".instructions").innerHTML = "";
+        for (let j = 0; j < recipeArray[i].instructions.length; j++) {
+            var li = document.createElement('li');
+            var br = document.createElement('br');
+            li.innerHTML = recipeArray[i].instructions[j].text;
+            divArray[i].querySelector(".instructions").appendChild(li);
+            divArray[i].querySelector(".instructions").appendChild(br);
+        }
+    }
+}
+
+recipe1Button.addEventListener("click", function () {
+    getRecipes(1, [recipe1Div])
+});
+
+recipe2Button.addEventListener("click", function () {
+    getRecipes(1, [recipe2Div])
+});
+
+recipe3Button.addEventListener("click", function () {
+    getRecipes(1, [recipe3Div])
+});
