@@ -8,7 +8,7 @@
 
 #formCentering {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 #formContainer {
@@ -90,5 +90,5 @@ h3 {
   }
 
   .food-container{
-    z-index: 1;
+    margin-right: 150px;
   }
