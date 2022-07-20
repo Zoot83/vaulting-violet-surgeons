@@ -15,7 +15,7 @@
     border: 2px solid black;
     height:75px;
     background-color: var(--firstColor);
-    width: 700px;
+    width: 750px;
     opacity: 60%;
     border-radius: 32px;
     margin-top: 150px;
@@ -49,7 +49,7 @@ h3 {
     font-size: 25px;
 }
 
-#submitTrackerBtn {
+form button {
     width: 100px;
 }
 
@@ -89,6 +89,23 @@ h3 {
     color: #fff;
   }
 
-  .food-container{
-    margin-right: 150px;
+  #food-container {
+    margin: 150px 0px 0px 50px;
+    width: 75%;
+    background-color: var(--firstColor);
+    opacity: 60%;
+    border: 2px solid black;
+    border-radius: 32px;
+  }
+
+  #food-container h2,#food-container h3{
+    color: white;
+  }
+
+  li {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-family: var(--commonFont);
+    opacity: 60%;
   }
