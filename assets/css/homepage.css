@@ -8,13 +8,21 @@
 
 h3 {
     font-size: 35px;
+    width: 80%;
+    margin-top: 20px;
+    /* margin-left: 20px; */
     font-family: var(--commonFont);
     text-align: center;
 }
 
-#resourcesNav {
+#resources {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+#resourcesNav {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
     text-align: center;
     margin-top: 200px;
     border: black
@@ -95,11 +103,11 @@ input {
     font-family: var(--commonFont);
     color: white;
     opacity: 60%;
+    font-size: 30px;
     padding-top: 35px;
-    margin-left: 180px;
+    margin-top: 50px;
     height: 100px;
-    width: 100px;
-    border-radius: 50%;
+    border-radius: 32px;
     border: 2px solid black;
 }
 
@@ -108,6 +116,7 @@ input {
     color: white;
     opacity: 60%;
     width: 66%;
+    padding-bottom: 50px;
 }
 
 select {
@@ -117,4 +126,34 @@ select {
     border-radius: 0px 16px 16px 0px;
     height: 35px;
     width: 100px;
+}
+
+.foodInfoDiv img {
+    width: 50%;
+    height: 50%;
+    margin: 20px 0px 20px 20px;
+}
+
+h4 {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    font-size: 30px;
+    font-family: var(--commonFont);
+    font-weight: bold;
+}
+
+ul li {
+    width: 75%;
+    font-size: 20px;
+    font-family: var(--commonFont);
+    margin-left: 20px;
+}
+
+.foodInfoDiv button {
+    margin-left: 20px;
+    height: 50px;
+    width: 100px;
+    color: white;
+    background-color: black;
+    border-radius: 16px;
 }
