@@ -42,19 +42,31 @@ function getRecipes (recipesCount, divArray) {
         displayRecipes(recipesCount, divArray, data);
         })
     .catch(err => console.error(err));
-
 }
 
 function displayRecipes (recipesCount, divArray, recipeArray) {
     for (let i = 0; i < recipesCount; i++) {
+		var remover = divArray[i].querySelectorAll(".list-elem");
+		remover.forEach(element => {
+			element.remove();
+		});
         divArray[i].querySelector(".title").innerHTML = recipeArray[i].title;
-        divArray[i].querySelector(".image").innerHTML = recipeArray[i].image;
-        divArray[i].querySelector(".ingredients").innerHTML = recipeArray[i].ingredients;
-        divArray[i].querySelector(".instructions").innerHTML = "";
+		divArray[i].querySelector(".image").setAttribute("src", recipeArray[i].image);
+		for (let k = 0; k < recipeArray[i].ingredients.length; k++) {
+			var li = document.createElement('li');
+            var br = document.createElement('br');
+            li.innerHTML = recipeArray[i].ingredients[k];
+			li.classList.add("list-elem");
+			br.classList.add("list-elem");
+            divArray[i].querySelector(".ingredients").appendChild(li);
+            divArray[i].querySelector(".ingredients").appendChild(br);
+		}
         for (let j = 0; j < recipeArray[i].instructions.length; j++) {
             var li = document.createElement('li');
             var br = document.createElement('br');
             li.innerHTML = recipeArray[i].instructions[j].text;
+			li.classList.add("list-elem");
+			br.classList.add("list-elem");
             divArray[i].querySelector(".instructions").appendChild(li);
             divArray[i].querySelector(".instructions").appendChild(br);
         }
