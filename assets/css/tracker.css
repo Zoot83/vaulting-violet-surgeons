@@ -14,8 +14,9 @@
 #formContainer {
     border: 2px solid black;
     height:75px;
+    margin-top: 150px;
     background-color: var(--firstColor);
-    width: 750px;
+    width: 850px;
     opacity: 60%;
     border-radius: 32px;
 }
@@ -48,14 +49,18 @@ h3 {
     font-size: 25px;
 }
 
+#searchBtn {
+  margin-bottom: 15px;
+}
+
 form button {
     width: 100px;
 }
 
 
-  .food-container{
+  /* .food-container{
     margin-right: 150px;
-  }
+  } */
 
   .autocomplete-list{
     position: absolute;
