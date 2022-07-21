@@ -38,7 +38,6 @@ function getRecipes (recipesCount, divArray) {
     fetch('https://random-recipes.p.rapidapi.com/ai-quotes/' + recipesCount, options)
     .then(response => response.json())
     .then(function (data) {
-        console.log(data);
         displayRecipes(recipesCount, divArray, data);
         })
     .catch(err => console.error(err));
