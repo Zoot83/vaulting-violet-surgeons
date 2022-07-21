@@ -114,6 +114,7 @@ function saveInfo(event) {
   inputVar.quantity =document.getElementById("food-amount").value;
   numberOfFood++;
   inputVar.id=numberOfFood;
+
   addToSection(inputVar);
 
 }
@@ -134,18 +135,13 @@ function addToSection(inputValues) {
   currentAmountEl.innerHTML = "Your daily total is: "+dailyCalTotal.toFixed(2);
   getUsersInfo;
 
-  foodAdded.push(inputValues);
+  
   listEl.appendChild(newFoodName);
-  createRemoveOption(inputValues);
+ 
+  foodInputEl.innerHTML="";
+  foodInputEl.value='';
 }
 
-function createRemoveOption(input){
-  let newRemoveRecord = document.createElement('option');
-  newRemoveRecord.innerHTML=input.foodName;
-  newRemoveRecord.value=input.id;
-  newRemoveRecord.setAttribute('class', "remove-options");
-  removeEl.append(newRemoveRecord);
-}
 
 
 function calculateCalories(quantity, calPerServing){
@@ -181,6 +177,8 @@ function clearAllListElements(){
   localStorage.setItem("data", 0);
   currentAmountEl.innerHTML = "Your daily total is: 0";
   numberOfFood=0;
+
+  foodAdded=[];
 }
 
 
@@ -199,32 +197,12 @@ function getUsersInfo(){
   }
 }
 
-function removeFoodFromList(){
-  var removeFoodID = document.getElementById("food-remove").value;
-  var listElements = document.querySelectorAll('.list-elem');
-  listElements.forEach(function(item){
-    for(var i=0; i<foodAdded.length;i++){
-      if(foodAdded[i].id ==removeFoodID){
-        item.remove();
-        dailyCalTotal=(dailyCalTotal-foodAdded[i].calAmount);
-      }
-    }
-  })
-  var removeOptionEl = document.querySelectorAll('.remove-options');
-  removeOptionEl.forEach(function(item){
-    if(item.value==removeFoodID){
-      item.remove();
-    }
-  });
-  getUsersInfo();
-}
 
 getUsersInfo();
 
 submitEl.addEventListener("click", saveInfo);
 clearBtnEl.addEventListener("click", clearAllListElements);
 
-removeBtnEl.addEventListener('click',removeFoodFromList);
 
 $(document).keypress(function(event){
   if(event.which == '13'){
