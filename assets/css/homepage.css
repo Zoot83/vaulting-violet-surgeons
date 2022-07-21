@@ -31,7 +31,7 @@ h3 {
 #homePageForm {
     margin-top: 250px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
 }
 
 #submitBtn {
@@ -80,7 +80,7 @@ h3 {
 form {
     background-color: var(--firstColor);
     height: 100px;
-    width: 700px;
+    width: 100%;
     opacity: 60%;
     border-radius: 32px;
     border: 2px solid black;
