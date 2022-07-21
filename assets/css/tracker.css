@@ -14,8 +14,9 @@
 #formContainer {
     border: 2px solid black;
     height:75px;
+    margin-top: 150px;
     background-color: var(--firstColor);
-    width: 700px;
+    width: 850px;
     opacity: 60%;
     border-radius: 32px;
 }
@@ -48,14 +49,18 @@ h3 {
     font-size: 25px;
 }
 
-#submitTrackerBtn {
+#searchBtn {
+  margin-bottom: 15px;
+}
+
+form button {
     width: 100px;
 }
 
 
-  .food-container{
+  /* .food-container{
     margin-right: 150px;
-  }
+  } */
 
   .autocomplete-list{
     position: absolute;
@@ -84,7 +89,28 @@ h3 {
   
   button{
     cursor: pointer;
-
   }
+
+  #food-container {
+    margin: 150px 0px 0px 50px;
+    width: 75%;
+    background-color: var(--firstColor);
+    opacity: 60%;
+    border: 2px solid black;
+    border-radius: 32px;
+  }
+
+  #food-container h2,#food-container h3{
+    color: white;
+  }
+
+  li {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-family: var(--commonFont);
+    opacity: 60%;
+  }
+  
   
 
