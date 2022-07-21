@@ -19,6 +19,7 @@
     width: 850px;
     opacity: 60%;
     border-radius: 32px;
+    margin: 50px;
 }
 
 label {
@@ -29,7 +30,7 @@ select, input, button {
     margin-top: 15px;
     height: 35px;
     border: 2px solid black;
-    border-radius: 16px;
+    border-radius: 4px;
 }
 
 input {
@@ -79,6 +80,7 @@ form button {
     width:calc(100%-30px);
     font-weight: bold;
     cursor:pointer;
+    border-style: dashed;
   }
   
   .autocomplete {
@@ -106,11 +108,22 @@ form button {
 
   li {
     text-align: center;
-    color: white;
+    color: black;
     font-size: 20px;
     font-family: var(--commonFont);
-    opacity: 60%;
   }
   
   
+  .food-remove{
+    width:250px;
+  }
 
+  .remove-food{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 50px;
+    margin-top: 380px;
+    position: fixed;
+  }
+  

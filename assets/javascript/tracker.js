@@ -1,4 +1,4 @@
-let foods=[];
+
 var foodListEl = document.querySelector("#food-list");
 var foodInputEl = document.querySelector("#myInput")
 var searchEl = document.getElementById("searchBtn");
@@ -10,15 +10,24 @@ var userName = localStorage.getItem("userName");
 var caloriesGoal = localStorage.getItem("calorieGoal");
 var currentAmountEl = document.getElementById("currentAmount");
 var clearBtnEl = document.getElementById("clearBtn");
+
+var removeEl=document.querySelector("#food-remove");
+var removeBtnEl = document.getElementById('removeBtn');
+
+let foods=[];
+var foodAdded=[];
 var dailyCalTotal = 0;
 
 var foodsCalories=0;
+
+var numberOfFood=0;
 
 var inputVar = {
   type: "",
   foodName: "",
   quantity: 0,
-  calAmount: 0
+  calAmount: 0,
+  id:0
 }
 
 var foodCalAmount =0;
@@ -34,6 +43,7 @@ const options = {
 
 function fetchfoods(input){
 
+  if(input){
   fetch('https://nutritionix-api.p.rapidapi.com/v1_1/search/'+input+'?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat', options)
     .then(response => response.json())
     .then((data)=>{ 
@@ -42,7 +52,7 @@ function fetchfoods(input){
       }
     loadData(foods,foodListEl);
     });
-    
+  }
 }
 
 
@@ -54,7 +64,7 @@ function loadData(data,element){
     let innerElement="";
      data.forEach((item)=>{
        innerElement+= `
-       <li class="auto-list-elem" id="auto-list-elem" value=${item.fields.nf_calories}>${item.fields.item_name}</li>`;
+       <li class="auto-list-elem" id="auto-list-elem" value=${item.fields.nf_calories}>${item.fields.item_name} Brand: (${item.fields.brand_name})</li>`;
      });
      element.innerHTML=innerElement;
   }
@@ -100,9 +110,11 @@ function saveInfo(event) {
   submitEl.setAttribute("disabled", "true");
   inputVar.type = document.getElementById("food-type").value;
   inputVar.foodName = document.getElementById("myInput").value;
- console.log(" Here:: "+ foodInputEl.innerHTML)
   inputVar.calAmount = foodsCalories;
   inputVar.quantity =document.getElementById("food-amount").value;
+  numberOfFood++;
+  inputVar.id=numberOfFood;
+
   addToSection(inputVar);
 
 }
@@ -112,18 +124,24 @@ function addToSection(inputValues) {
 
   let newFoodName = document.createElement("li");
   newFoodName.innerHTML=inputValues.foodName;
+  newFoodName.value=inputValues.id;
   var listEl = document.getElementById(inputValues.type)
   newFoodName.classList.add("list-elem");
-    caloriesCount = calculateCalories(inputValues.quantity, inputValues.calAmount);
-    newFoodName.innerHTML+=" Calories: "+caloriesCount;
-    addToTotalCount(caloriesCount);
-    dailyCalTotal += caloriesCount; 
-    currentAmountEl.innerHTML = "Your daily total is: "+dailyCalTotal.toFixed(2);
-    getUsersInfo;
+  caloriesCount = calculateCalories(inputValues.quantity, inputValues.calAmount);
+  inputValues.calAmount=caloriesCount;
+  newFoodName.innerHTML+=" Calories: "+caloriesCount;
+  addToTotalCount(caloriesCount);
+  dailyCalTotal += caloriesCount; 
+  currentAmountEl.innerHTML = "Your daily total is: "+dailyCalTotal.toFixed(2);
+  getUsersInfo;
 
+  
   listEl.appendChild(newFoodName);
-
+ 
+  foodInputEl.innerHTML="";
+  foodInputEl.value='';
 }
+
 
 
 function calculateCalories(quantity, calPerServing){
@@ -158,6 +176,9 @@ function clearAllListElements(){
   dailyCalTotal=0;
   localStorage.setItem("data", 0);
   currentAmountEl.innerHTML = "Your daily total is: 0";
+  numberOfFood=0;
+
+  foodAdded=[];
 }
 
 
@@ -176,7 +197,15 @@ function getUsersInfo(){
   }
 }
 
+
 getUsersInfo();
 
 submitEl.addEventListener("click", saveInfo);
 clearBtnEl.addEventListener("click", clearAllListElements);
+
+
+$(document).keypress(function(event){
+  if(event.which == '13'){
+    event.preventDefault();
+  }
+});
