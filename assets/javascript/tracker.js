@@ -197,7 +197,7 @@ function getUsersInfo(){
   }
 }
 
-
+localStorage.setItem('data', 0);
 getUsersInfo();
 
 submitEl.addEventListener("click", saveInfo);
