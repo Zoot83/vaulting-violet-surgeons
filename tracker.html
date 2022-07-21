@@ -45,9 +45,17 @@
                         <option value="drinks">Drinks</option>
                     </select>
 
-                    <div class="autocomplete" style="width:150px;">
-                        <input id="myInput" type="text" name="myInput" placeholder="Food Name">                        
+                    <div class="autocomplete">
+                  
+                        <input type="text" id="myInput" class="autocomplete-input" 
+                        placeholder="Search Food">
+      
+                        <ul class="autocomplete-list" id="food-list">
+                        </ul>
+      
+                        <button type="button" id="searchBtn">Search for Food</button>
                     </div>
+                    
                     <select id="food-amount" name="food-amount">
                         <option value=".5">.5 Serving</option>
                         <option value="1" >1 Serving</option>
@@ -55,7 +63,7 @@
                         <option value="2">2 Servings</option>
                         <option value="3">3 Servings</option>
                     </select>
-                    <button type="button" id="submitBtn">Submit</button>
+                    <button type="button" id="submitBtn" disabled="true">Submit</button>
                     <button type="button" id="clearBtn">Clear</button>
                 </form>
             </div>
@@ -93,7 +101,8 @@
         
 
 
-    <!-- <script src="assets/javascript/script.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script src="assets/javascript/tracker.js"></script>
     </body>
 
