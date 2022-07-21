@@ -38,19 +38,16 @@ p {
     margin-top: 50px;
 }
 .resultDiv {
-    width: 600px;
+    width: 75%;
     color: white;
-    height: 300px;
     border: 2px solid black;
     border-radius: 32px;
     opacity: 60%;
-    margin-top: 150px;
+    margin-top: 100px;
     background-color: var(--firstColor);
 }
-.resultcenter {
-    text-align: center;
-}
-.inputCentering {
+
+#inputCentering {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -70,6 +67,12 @@ div ul {
     justify-content: center;
     align-items: center;
 }
-#goalinput {
-    font-size: 30px;
+
+#goalbox p {
+    font-size: 25px;
+    font-family: var(--commonFont);
+}
+
+#goalresultbox li {
+    font-family: var(--commonFont);
 }
